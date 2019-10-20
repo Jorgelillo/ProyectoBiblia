@@ -1,3 +1,4 @@
+import { ComponentOneComponent } from './../../components/component-one/component-one.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageOneComponent } from './page-one.component';
@@ -8,7 +9,7 @@ describe('PageOneComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageOneComponent ]
+      declarations: [ PageOneComponent, ComponentOneComponent ]
     })
     .compileComponents();
   }));
