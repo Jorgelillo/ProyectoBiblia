@@ -28,15 +28,6 @@ export class ReactiveFormTutorialComponent implements OnInit {
   private profileForm: FormGroup;
 
   /**
-   * List of persons.
-   *
-   * @private
-   * @type {Array<PersondDto>}
-   * @memberof ReactiveFormTutorialComponent
-   */
-  private personList: Array<PersondDto>;
-
-  /**
    * Creates an instance of ReactiveFormTutorialComponent.
    *
    * @param {FormsService} formsService
@@ -51,14 +42,12 @@ export class ReactiveFormTutorialComponent implements OnInit {
    * @memberof ReactiveFormTutorialComponent
    */
   ngOnInit() {
-    // Get the personList from the Service.
-    this.personList = this.formsService.getPersonList();
     // Initialize the form.
     this.createForm();
   }
 
   /**
-   *
+   * Create a new Form.
    *
    * @memberof ReactiveFormTutorialComponent
    */
@@ -80,9 +69,7 @@ export class ReactiveFormTutorialComponent implements OnInit {
    * @memberof FormTutorialComponent
    */
   private onSubmit(person: PersondDto) {
-    console.warn('Your order has been submitted', person);
     this.formsService.setPerson(person);
-    this.personList = this.formsService.getPersonList();
     this.profileForm.reset();
   }
 
@@ -94,35 +81,6 @@ export class ReactiveFormTutorialComponent implements OnInit {
    */
   private cleanList(): void {
     this.formsService.cleanPersonList();
-    this.personList = this.formsService.getPersonList();
-  }
-
-  /**
-   * Set the init number from which display the personList Array.
-   *
-   * @private
-   * @returns {number}
-   * @memberof FormTutorialComponent
-   */
-  private getInit(): number {
-    if ( this.personList.length > 2 ) {
-      return this.personList.length - 2;
-    }
-    return 0;
-  }
-
-  /**
-   * Set the final number for displaying the personList Array.
-   *
-   * @private
-   * @returns {number}
-   * @memberof FormTutorialComponent
-   */
-  private getEnd(): number {
-    if ( this.personList.length > 2 ) {
-      return this.personList.length;
-    }
-    return 2;
   }
 
 }
