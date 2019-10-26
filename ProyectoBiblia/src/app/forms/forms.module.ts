@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormTutorialComponent } from './components/reactive-form-tutorial/reactive-form-tutorial.component';
 
 
 @NgModule({
   declarations: [
     FormTutorialPageComponent,
-    FormTutorialComponent
+    FormTutorialComponent,
+    ReactiveFormTutorialComponent
   ],
   imports: [
     CommonModule,

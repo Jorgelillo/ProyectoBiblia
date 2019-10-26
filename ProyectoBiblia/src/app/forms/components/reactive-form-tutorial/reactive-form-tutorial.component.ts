@@ -1,74 +1,74 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormsService } from './../../services/forms.service';
-import { PersondDto } from './../../models/person/persond-dto';
+import { PersondDto } from '../../models/person/persond-dto';
 
 /**
- * Component for the form of the Angular.io tutorial.
+ * Component for the Reactive form of the Angular.io tutorial.
  *
  * @export
- * @class FormTutorialComponent
+ * @class ReactiveFormTutorialComponent
  * @implements {OnInit}
  */
 @Component({
-  selector: 'app-form-tutorial',
-  templateUrl: './form-tutorial.component.html',
-  styleUrls: ['./form-tutorial.component.less']
+  selector: 'app-reactive-form-tutorial',
+  templateUrl: './reactive-form-tutorial.component.html',
+  styleUrls: ['./reactive-form-tutorial.component.less']
 })
-export class FormTutorialComponent implements OnInit {
-
-  /**
-   * List of persons.
-   *
-   * @private
-   * @type {Array<PersondDto>}
-   * @memberof FormTutorialComponent
-   */
-  private personList: Array<PersondDto>;
+export class ReactiveFormTutorialComponent implements OnInit {
 
   /**
    * Form.
    *
    * @private
    * @type {FormGroup}
-   * @memberof FormTutorialComponent
+   * @memberof ReactiveFormTutorialComponent
    */
-  private checkoutForm: FormGroup;
+  private profileForm: FormGroup;
 
   /**
-   * Creates an instance of FormTutorialComponent.
+   * List of persons.
    *
-   * @param {FormBuilder} formBuilder Dependency Injection.
-   * @param {FormsService} formsService Dependency Injection.
-   * @memberof FormTutorialComponent
+   * @private
+   * @type {Array<PersondDto>}
+   * @memberof ReactiveFormTutorialComponent
    */
-  constructor(private formBuilder: FormBuilder,
-              private formsService: FormsService) { }
+  private personList: Array<PersondDto>;
 
   /**
-   * Method run in when the component is initialized.
+   * Creates an instance of ReactiveFormTutorialComponent.
    *
-   * @memberof FormTutorialComponent
+   * @param {FormsService} formsService
+   * @memberof ReactiveFormTutorialComponent
+   */
+  constructor( private formsService: FormsService ) { }
+
+
+  /**
+   * Initialize the form.
+   *
+   * @memberof ReactiveFormTutorialComponent
    */
   ngOnInit() {
     // Get the personList from the Service.
     this.personList = this.formsService.getPersonList();
     // Initialize the form.
-    this.initForm();
+    this.createForm();
   }
 
   /**
-   * Initialize the form.
    *
-   * @private
-   * @memberof FormTutorialComponent
+   *
+   * @memberof ReactiveFormTutorialComponent
    */
-  private initForm() {
-    console.log('Form has been initialized.');
-
-    this.checkoutForm = this.formBuilder.group({
-      name: '', surname: '', age: '', address: '', city: ''
+  createForm(): void {
+    this.profileForm = new FormGroup({
+      name: new FormControl(''),
+      surname: new FormControl(''),
+      age: new FormControl(''),
+      address: new FormControl(''),
+      city: new FormControl(''),
     });
   }
 
@@ -83,7 +83,7 @@ export class FormTutorialComponent implements OnInit {
     console.warn('Your order has been submitted', person);
     this.formsService.setPerson(person);
     this.personList = this.formsService.getPersonList();
-    this.checkoutForm.reset();
+    this.profileForm.reset();
   }
 
   /**
