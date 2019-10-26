@@ -1,7 +1,7 @@
-import { ModelOne } from './model-one';
+import { Country } from './model-one';
 
-describe('ModelOne', () => {
+describe('Country', () => {
   it('should create an instance', () => {
-    expect(new ModelOne()).toBeTruthy();
+    expect(new Country()).toBeTruthy();
   });
 });
