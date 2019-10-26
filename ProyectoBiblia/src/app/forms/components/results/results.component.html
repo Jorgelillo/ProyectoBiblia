@@ -1,0 +1,15 @@
+<!-- Display the results -->
+<div class="results" *ngIf="personList.length > 0">
+
+    <!-- Items displayed -->
+    <div class="box-item">
+        <div class="item" *ngFor="let person of personList | slice:getInit():getEnd()">
+            <p>{{ person | json }}</p> <br>
+        </div>
+    </div>
+
+    <!-- Clean button  -->
+    <div class="box-submit">
+        <button class="button btn-submit" (click)="cleanList()">Clean</button>
+    </div>
+</div>

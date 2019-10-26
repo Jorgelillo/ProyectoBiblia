@@ -55,7 +55,7 @@ export class FormsService {
    *
    * @memberof FormsService
    */
-  cleanPersonList(): void {
+  cleanPersonList() {
     this.personList = [];
   }
 }

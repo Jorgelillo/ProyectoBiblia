@@ -3,11 +3,6 @@
   <!-- Title -->
   <h3 class="title">Tutorial Form</h3>
 
-  <!-- Items displayed -->
-  <div class="cart-item" *ngFor="let person of personList | slice:getInit():getEnd()">
-    <p>{{ person | json }}</p> <br>
-  </div>
-
   <!-- Form -->
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
@@ -45,12 +40,13 @@
       </label>
       <input id="city" type="text" formControlName="city">
     </div>
-    
-    <span class="total" *ngIf="personList.length > 0"> Total: {{ personList.length }} </span>
+
+    <!-- Counter -->
+    <span class="total" *ngIf="formsService.personList.length > 0"> Total: {{ formsService.personList.length }} </span>
 
     <!-- Submit -->
-    <button class="button btn-submit" *ngIf="personList.length > 0" (click)="cleanList()">Clean</button>
-    <button class="button btn-submit" [ngClass]="{'totalIsDisplayed': personList.length === 0}" type="submit">Add</button>
+    <button class="button btn-submit" [ngClass]="{'totalIsDisplayed': formsService.personList.length === 0}" type="submit">Add</button>
+
 
   </form>
 

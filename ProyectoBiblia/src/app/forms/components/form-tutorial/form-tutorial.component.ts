@@ -19,15 +19,6 @@ import { PersondDto } from './../../models/person/persond-dto';
 export class FormTutorialComponent implements OnInit {
 
   /**
-   * List of persons.
-   *
-   * @private
-   * @type {Array<PersondDto>}
-   * @memberof FormTutorialComponent
-   */
-  private personList: Array<PersondDto>;
-
-  /**
    * Form.
    *
    * @private
@@ -52,8 +43,6 @@ export class FormTutorialComponent implements OnInit {
    * @memberof FormTutorialComponent
    */
   ngOnInit() {
-    // Get the personList from the Service.
-    this.personList = this.formsService.getPersonList();
     // Initialize the form.
     this.initForm();
   }
@@ -80,9 +69,7 @@ export class FormTutorialComponent implements OnInit {
    * @memberof FormTutorialComponent
    */
   private onSubmit(person: PersondDto) {
-    console.warn('Your order has been submitted', person);
     this.formsService.setPerson(person);
-    this.personList = this.formsService.getPersonList();
     this.checkoutForm.reset();
   }
 
@@ -94,35 +81,5 @@ export class FormTutorialComponent implements OnInit {
    */
   private cleanList(): void {
     this.formsService.cleanPersonList();
-    this.personList = this.formsService.getPersonList();
   }
-
-  /**
-   * Set the init number from which display the personList Array.
-   *
-   * @private
-   * @returns {number}
-   * @memberof FormTutorialComponent
-   */
-  private getInit(): number {
-    if ( this.personList.length > 2 ) {
-      return this.personList.length - 2;
-    }
-    return 0;
-  }
-
-  /**
-   * Set the final number for displaying the personList Array.
-   *
-   * @private
-   * @returns {number}
-   * @memberof FormTutorialComponent
-   */
-  private getEnd(): number {
-    if ( this.personList.length > 2 ) {
-      return this.personList.length;
-    }
-    return 2;
-  }
-
 }
