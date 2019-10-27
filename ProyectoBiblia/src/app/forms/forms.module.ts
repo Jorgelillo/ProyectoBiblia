@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormTutorialComponent } from './components/reactive-form-tutorial/reactive-form-tutorial.component';
 import { ResultsComponent } from './components/results/results.component';
 import { ValidationTutorialComponent } from './components/validation-tutorial/validation-tutorial.component';
+import { CodeComponent } from './components/code/code.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ValidationTutorialComponent } from './components/validation-tutorial/va
     FormTutorialComponent,
     ReactiveFormTutorialComponent,
     ResultsComponent,
-    ValidationTutorialComponent
+    ValidationTutorialComponent,
+    CodeComponent
   ],
   imports: [
     CommonModule,

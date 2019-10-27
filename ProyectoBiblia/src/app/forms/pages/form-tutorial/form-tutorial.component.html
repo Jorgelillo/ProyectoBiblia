@@ -7,27 +7,25 @@
         <app-reactive-form-tutorial></app-reactive-form-tutorial>
         <!-- Validation tutorial -->
         <app-validation-tutorial></app-validation-tutorial>
-        <app-validation-tutorial></app-validation-tutorial>
-        <app-validation-tutorial></app-validation-tutorial>
-        <app-validation-tutorial></app-validation-tutorial>
-        <app-validation-tutorial></app-validation-tutorial>
-        <app-validation-tutorial></app-validation-tutorial>
     </div>
-    
     <!-- Components to display information of the list. -->
     <div class="display-result">
-
         <div class="box-result">
+            <!-- Properties -->
             <div class="properties">
-                <button type="submit" class="btn btn-primary" (click)="displayBtn()">Show Results</button>
-                <button type="submit" class="btn btn-primary" (click)="displayCode()">Show Code</button>
+                <!-- Buttons -->
+                <button type="submit" class="btn btn-primary" (click)="displayForms()">Forms</button>
+                <button type="submit" class="btn btn-primary" (click)="displayResults()">Results</button>
+                <button type="submit" class="btn btn-primary" (click)="displayDocs()">Docs</button>
+                <button type="submit" class="btn btn-primary" (click)="displayCode()">Code</button>
             </div>
-
-            <div class="container-results" *ngIf="formsService.showResults">
+            <!-- Result container -->
+            <div class="container-results">
                 <!-- Results -->
-                <app-results></app-results>
+                <app-results *ngIf="formsService.showResults"></app-results>
+                <!-- Code results -->
+                <app-code *ngIf="formsService.showCode"></app-code>
             </div>
         </div>
-
     </div>
 </div>

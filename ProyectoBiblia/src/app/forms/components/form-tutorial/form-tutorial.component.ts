@@ -19,6 +19,14 @@ import { PersondDto } from './../../models/person/persond-dto';
 export class FormTutorialComponent implements OnInit {
 
   /**
+   * Images to display to see the code.
+   *
+   * @type {Array<string>}
+   * @memberof FormTutorialComponent
+   */
+  imagesInfo: Array<string>;
+
+  /**
    * Form.
    *
    * @private
@@ -45,6 +53,20 @@ export class FormTutorialComponent implements OnInit {
   ngOnInit() {
     // Initialize the form.
     this.initForm();
+    // Set image code.
+    this.setImages();
+  }
+
+  /**
+   * Set the images.
+   *
+   * @memberof FormTutorialComponent
+   */
+  setImages() {
+    this.imagesInfo = new Array<string>();
+    this.imagesInfo.push('assets/img/forms/code/form-tutorial/form_tutorial_01.PNG');
+    this.imagesInfo.push('assets/img/forms/code/form-tutorial/form_tutorial_02.PNG');
+    this.imagesInfo.push('assets/img/forms/code/form-tutorial/form_tutorial_03.PNG');
   }
 
   /**
