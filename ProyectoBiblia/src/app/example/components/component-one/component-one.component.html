@@ -1,0 +1,33 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Name</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Area</th>
+        <th scope="col">Population</th>
+        <th scope="col">Currency</th>
+        <th scope="col">Gdp</th>
+        <th scope="col">isFirts</th>
+        <th scope="col">isEven</th>
+        <th scope="col">isOdd</th>
+        <th scope="col">isLast</th>
+      </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let country of countryList; index as i; first as isFirst; even as isEven; odd as isOdd; last as isLast">
+                    <th scope="row"> {{ i }} </th>
+                    <td> {{ country.name }} </td>
+                    <td> {{ country.capital }} </td>
+                    <td> {{ country.area }} </td>
+                    <td> {{ country.population }} </td>
+                    <td> {{ country.currency }} </td>
+                    <td> {{ country.gdp }} </td>
+                    <td> {{ isFirst }} </td>
+                    <td> {{ isEven }} </td>
+                    <td> {{ isOdd }} </td>
+                    <td> {{ isLast }} </td>
+                </tr>
+</tbody>
+</table>

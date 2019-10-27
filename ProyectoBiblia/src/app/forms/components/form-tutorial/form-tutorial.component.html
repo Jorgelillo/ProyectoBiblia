@@ -1,0 +1,56 @@
+<div class="box">
+
+  <!-- Title -->
+  <div class="head">
+    <h3 class="title">Tutorial Form</h3>
+    <button type="button" class="btn btn-light btn-code" (click)="formsService.nextCodeInformation(imagesInfo)">Code</button>
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+    <div class="entry">
+      <label for="name">
+        Name
+      </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div class="entry">
+      <label for="surname">
+        Surname
+      </label>
+      <input id="surname" type="text" formControlName="surname">
+    </div>
+
+    <div class="entry">
+      <label for="age">
+        Age
+      </label>
+      <input id="age" type="text" formControlName="age">
+    </div>
+
+    <div class="entry">
+      <label for="address">
+        Address
+      </label>
+      <input id="address" type="text" formControlName="address">
+    </div>
+
+    <div class="entry">
+      <label for="city">
+        City
+      </label>
+      <input id="city" type="text" formControlName="city">
+    </div>
+
+    <!-- Counter -->
+    <span class="total" *ngIf="formsService.personList.length > 0"> Total: {{ formsService.personList.length }} </span>
+
+    <!-- Submit -->
+    <button class="button btn-submit" [ngClass]="{'totalIsDisplayed': formsService.personList.length === 0}" type="submit">Add</button>
+
+
+  </form>
+
+</div>
