@@ -1,3 +1,4 @@
+import { FormsService } from './../../services/forms.service';
 import { Component, OnInit } from '@angular/core';
 
 /**
@@ -18,6 +19,14 @@ export class FormTutorialPageComponent{
    *
    * @memberof FormTutorialPageComponent
    */
-  constructor() { }
+  constructor(private formsService: FormsService) { }
+
+  displayBtn() {
+    if (this.formsService.showResults) {
+      this.formsService.showResults = false;
+    } else {
+      this.formsService.showResults = true;
+    }
+  }
 
 }

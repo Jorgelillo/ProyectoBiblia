@@ -22,11 +22,20 @@ export class FormsService {
   private personList: Array<PersondDto>;
 
   /**
+   * Display or not the result frame.
+   *
+   * @type {boolean}
+   * @memberof FormsService
+   */
+  showResults: boolean;
+
+  /**
    * Creates an instance of FormsService.
    *
    * @memberof FormsService
    */
   constructor() {
+    this.showResults = false;
     this.personList = new Array<PersondDto>();
   }
 
